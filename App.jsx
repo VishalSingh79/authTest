@@ -9,6 +9,7 @@ import amplifyconfig from './src/amplifyconfiguration.json';
 import SignupScreen from './screens/SignupScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
+import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 
 Amplify.configure(amplifyconfig);
 
@@ -69,6 +70,7 @@ export default function App() {
           <>
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="SignUp" component={SignupScreen} />
+            <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
           </>
         )}
       </Stack.Navigator>

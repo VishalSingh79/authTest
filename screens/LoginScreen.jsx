@@ -26,11 +26,12 @@ const LoginScreen = () => {
     await signOut();
     setLoading(true);
     try {
-
-      const { isSignedIn } = await signIn({ username: email, password }); 
+      const { isSignedIn } = await signIn({ username: email, password });
 
       if (isSignedIn) {
-          console.log('User signed in successfully, App.jsx will handle navigation.');   
+        console.log(
+          'User signed in successfully, App.jsx will handle navigation.',
+        );
       }
     } catch (error) {
       console.error('SignIn Error:', error);
@@ -38,11 +39,9 @@ const LoginScreen = () => {
     } finally {
       setLoading(false);
     }
-};
+  };
   return (
-    <KeyboardAvoidingView
-      style={{ flex: 1 }}
-    >
+    <KeyboardAvoidingView style={{ flex: 1 }}>
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.title}>Login</Text>
         <TextInput
@@ -77,6 +76,11 @@ const LoginScreen = () => {
             onPress={() => navigation.navigate('SignUp')}
             color="#6c757d"
           />
+
+          <Button
+            title="Forgot Password?"
+            onPress={() => navigation.navigate('ForgotPassword')}
+          />
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
-    backgroundColor: '#f5f5f5', 
+    backgroundColor: '#f5f5f5',
   },
   title: {
     fontSize: 28,
@@ -98,12 +102,12 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   input: {
-    width: '100%', 
+    width: '100%',
     height: 50,
     borderColor: '#ddd',
     borderWidth: 1,
-    borderRadius: 8, 
-    marginBottom: 15, 
+    borderRadius: 8,
+    marginBottom: 15,
     paddingHorizontal: 15,
     backgroundColor: '#fff',
     fontSize: 16,
